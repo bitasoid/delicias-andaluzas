@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Consulta la carta de Delicias Andaluzas y prepara un pedido simulado.">
+    <title>Carta y pedidos | Delicias Andaluzas</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <nav class="navegacion" aria-label="Navegación principal">
+        <a class="marca" href="index.html#inicio" aria-label="Delicias Andaluzas, ir al inicio">
+            <span class="marca__simbolo">DA</span>
+            <span>Delicias<br>Andaluzas</span>
+        </a>
+        <button id="boton-navegacion" class="boton-navegacion" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú de navegación">
+            <span class="sr-only">Menú de navegación</span>
+            <span></span><span></span><span></span>
+        </button>
+        <div id="menu-principal" class="menu-principal">
+            <a href="index.html#inicio">Inicio</a>
+            <a href="index.html#nosotros">Nosotros</a>
+            <a href="carta.html#carta" aria-current="page">Carta</a>
+            <a id="enlace-pedidos" class="enlace-pedidos" href="carta.html#pedidos" aria-label="Pedidos, carrito vacío">
+                Pedidos <span aria-hidden="true">🛒</span><span id="contador-carrito" class="contador-carrito" aria-live="polite">0</span>
+            </a>
+            <a href="index.html#resenas">Reseñas</a>
+            <a href="index.html#eventos-ofertas">Eventos</a>
+            <a href="index.html#contacto">Contacto</a>
+            <a class="boton boton--pequeno" href="reservas.html#reservas">Reservar mesa</a>
+        </div>
+    </nav>
+
+    <header class="cabecera cabecera--interior cabecera--carta">
+        <div class="cabecera__contenido">
+            <p class="cabecera__etiqueta">Carta y pedidos</p>
+            <h1>Sabores del sur</h1>
+            <p class="cabecera__texto">Consulta nuestros platos y prepara tu pedido de demostración.</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="carta" class="carta seccion">
+        <div class="carta__introduccion">
+            <p class="seccion-etiqueta">Nuestra cocina</p>
+            <h2>Nuestra carta</h2>
+            <p>Descubre una selección de platos inspirados en la gastronomía andaluza.</p>
+        </div>
+
+        <div class="filtros" role="group" aria-label="Filtrar platos por categoría">
+            <button class="filtro activo" type="button" data-categoria="todos" aria-pressed="true">Todos</button>
+            <button class="filtro" type="button" data-categoria="entrantes" aria-pressed="false">Entrantes</button>
+            <button class="filtro" type="button" data-categoria="principales" aria-pressed="false">Principales</button>
+            <button class="filtro" type="button" data-categoria="postres" aria-pressed="false">Postres</button>
+            <button class="filtro" type="button" data-categoria="bebidas" aria-pressed="false">Bebidas</button>
+        </div>
+
+        <p id="resultado-filtro" class="resultado-filtro" aria-live="polite"></p>
+        <section id="lista-platos" class="lista-platos" aria-label="Platos de la carta"></section>
+        </section>
+
+        <section id="pedidos" class="pedidos seccion" aria-labelledby="titulo-pedidos">
+            <div class="pedidos__encabezado">
+                <div>
+                    <p class="seccion-etiqueta">Tu selección</p>
+                    <h2 id="titulo-pedidos">Prepara tu pedido</h2>
+                </div>
+                <p>Añade tus platos favoritos, elige cómo recibirlos y revisa el resumen antes de confirmar.</p>
+            </div>
+
+            <div class="pedidos__distribucion">
+                <div class="carrito" aria-labelledby="titulo-carrito">
+                    <div class="carrito__titulo">
+                        <h3 id="titulo-carrito">Tu carrito</h3>
+                        <span id="resumen-unidades">0 productos</span>
+                    </div>
+                    <p id="carrito-vacio" class="carrito-vacio">Tu carrito está vacío. Añade algún plato desde la carta.</p>
+                    <div id="lista-carrito" class="lista-carrito"></div>
+                    <div id="total-carrito" class="total-carrito" hidden>
+                        <span>Total</span>
+                        <strong id="importe-total">0,00 €</strong>
+                    </div>
+                </div>
+
+                <form id="formulario-pedido" class="formulario-pedido" novalidate>
+                    <h3>Datos del pedido</h3>
+                    <p class="texto-ayuda">No solicitamos datos bancarios. Esta operación es solo una simulación.</p>
+
+                    <fieldset>
+                        <legend>Modalidad</legend>
+                        <label class="opcion-pedido">
+                            <input type="radio" name="modalidad" value="recogida" checked>
+                            <span><strong>Recogida en el restaurante</strong><small>Calle Azahar, 24 · Sevilla</small></span>
+                        </label>
+                        <label class="opcion-pedido">
+                            <input type="radio" name="modalidad" value="domicilio">
+                            <span><strong>Entrega a domicilio</strong><small>Indica dónde debemos llevarlo</small></span>
+                        </label>
+                    </fieldset>
+
+                    <div class="campo">
+                        <label for="nombre-cliente">Nombre y apellidos</label>
+                        <input id="nombre-cliente" name="nombre" type="text" autocomplete="name" required>
+                    </div>
+                    <div class="campo">
+                        <label for="telefono-cliente">Teléfono de contacto</label>
+                        <input id="telefono-cliente" name="telefono" type="tel" autocomplete="tel" inputmode="tel" pattern="[0-9 +()-]{9,}" required>
+                    </div>
+                    <div id="grupo-direccion" class="campo" hidden>
+                        <label for="direccion-cliente">Dirección de entrega</label>
+                        <textarea id="direccion-cliente" name="direccion" rows="3" autocomplete="street-address" disabled></textarea>
+                    </div>
+
+                    <p id="mensaje-pedido" class="mensaje-pedido" aria-live="assertive"></p>
+                    <button class="boton boton--ancho" type="submit">Confirmar pedido</button>
+                </form>
+            </div>
+
+            <section id="confirmacion-pedido" class="confirmacion-pedido" aria-labelledby="titulo-confirmacion" tabindex="-1" hidden>
+                <p class="confirmacion-pedido__icono" aria-hidden="true">✓</p>
+                <p class="seccion-etiqueta">Simulación completada</p>
+                <h3 id="titulo-confirmacion">Resumen del pedido</h3>
+                <p id="datos-confirmacion"></p>
+                <ul id="productos-confirmacion"></ul>
+                <p class="confirmacion-pedido__total">Total: <strong id="total-confirmacion"></strong></p>
+                <p class="aviso-educativo"><strong>Proyecto educativo:</strong> este pedido es una simulación. No se ha enviado a ningún restaurante real ni se ha realizado ningún pago.</p>
+            </section>
+        </section>
+
+    </main>
+
+    <footer id="contacto" class="pie">
+        <div class="pie__contenido">
+            <div>
+                <p class="pie__marca">Delicias Andaluzas</p>
+                <p>Cocina tradicional, sobremesas largas<br>y sabor del sur.</p>
+            </div>
+            <div>
+                <h2>Visítanos</h2>
+                <p>Calle Azahar, 24<br>41004 Sevilla</p>
+            </div>
+            <div>
+                <h2>Horario</h2>
+                <p>Martes a domingo<br>13:00–16:30 · 20:00–23:30</p>
+            </div>
+            <div>
+                <h2>Contacto</h2>
+                <p><a href="tel:+34954000000">954 000 000</a><br><a href="mailto:hola@deliciasandaluzas.es">hola@deliciasandaluzas.es</a></p>
+            </div>
+        </div>
+        <div class="pie__final">
+            <p>© 2026 Delicias Andaluzas</p>
+            <p>Proyecto educativo · Datos de demostración</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+

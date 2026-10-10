@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Delicias Andaluzas, cocina tradicional del sur con ingredientes de temporada.">
+    <title>Delicias Andaluzas</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <nav class="navegacion" aria-label="Navegación principal">
+        <a class="marca" href="index.html#inicio" aria-label="Delicias Andaluzas, ir al inicio">
+            <span class="marca__simbolo">DA</span>
+            <span>Delicias<br>Andaluzas</span>
+        </a>
+        <button id="boton-navegacion" class="boton-navegacion" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú de navegación">
+            <span class="sr-only">Menú de navegación</span>
+            <span></span><span></span><span></span>
+        </button>
+        <div id="menu-principal" class="menu-principal">
+            <a href="index.html#inicio" aria-current="page">Inicio</a>
+            <a href="index.html#nosotros">Nosotros</a>
+            <a href="carta.html#carta">Carta</a>
+            <a id="enlace-pedidos" class="enlace-pedidos" href="carta.html#pedidos" aria-label="Pedidos, carrito vacío">
+                Pedidos <span aria-hidden="true">🛒</span><span id="contador-carrito" class="contador-carrito" aria-live="polite">0</span>
+            </a>
+            <a href="index.html#resenas">Reseñas</a>
+            <a href="index.html#eventos-ofertas">Eventos</a>
+            <a href="index.html#contacto">Contacto</a>
+            <a class="boton boton--pequeno" href="reservas.html#reservas">Reservar mesa</a>
+        </div>
+    </nav>
+
+    <header id="inicio" class="cabecera">
+        <div class="cabecera__contenido">
+            <p class="cabecera__etiqueta">Cocina andaluza · Sevilla</p>
+            <h1>El sur se sirve<br>en cada plato</h1>
+            <p class="cabecera__texto">Recetas con raíces, producto de temporada y una mesa preparada para compartir.</p>
+            <div class="cabecera__acciones">
+                <a class="boton boton--claro" href="carta.html#carta">Descubrir la carta</a>
+                <a class="boton boton--contorno" href="reservas.html#reservas">Reservar mesa</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="nosotros" class="presentacion seccion">
+            <div class="presentacion__imagen">
+                <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1000&q=85" alt="Interior acogedor de un restaurante" loading="lazy">
+                <p class="sello"><strong>Desde 1998</strong><span>Tradición familiar</span></p>
+            </div>
+            <div class="presentacion__texto">
+                <p class="seccion-etiqueta">Nuestra historia</p>
+                <h2>Andalucía, alrededor de una mesa</h2>
+                <p>Delicias Andaluzas nace como un lugar ficticio inspirado en las ventas, tabernas y casas de comidas del sur. Nuestra propuesta reúne recetas conocidas con una presentación actual y cercana.</p>
+                <p>Trabajamos con ingredientes de temporada y elaboraciones tranquilas para conservar el sabor de siempre.</p>
+                <a class="enlace-texto" href="carta.html#carta">Conoce nuestra carta <span aria-hidden="true">→</span></a>
+            </div>
+        </section>
+
+        <section class="destacados seccion" aria-labelledby="titulo-destacados">
+            <div class="encabezado-seccion">
+                <div>
+                    <p class="seccion-etiqueta">Recomendaciones de la casa</p>
+                    <h2 id="titulo-destacados">Sabores para recordar</h2>
+                </div>
+                <a class="enlace-texto" href="carta.html#carta">Ver la carta completa <span aria-hidden="true">→</span></a>
+            </div>
+            <div id="lista-destacados" class="lista-destacados"></div>
+        </section>
+
+        <section id="resenas" class="resenas seccion" aria-labelledby="titulo-resenas">
+            <div id="aviso-valoracion" class="aviso-valoracion" role="note">
+                <div>
+                    <strong>¿Quieres practicar dejando una valoración?</strong>
+                    <p>Esta invitación es una demostración y no supone que hayas visitado el restaurante. Una notificación real después de una visita necesitaría un sistema de clientes y reservas conectado.</p>
+                </div>
+                <button id="cerrar-aviso-valoracion" type="button" aria-label="Cerrar invitación para valorar">×</button>
+            </div>
+
+            <div class="resenas__encabezado">
+                <div>
+                    <p class="seccion-etiqueta">Opiniones y experiencias</p>
+                    <h2 id="titulo-resenas">Lo que cuentan de nuestra mesa</h2>
+                </div>
+                <div class="media-resenas" aria-live="polite">
+                    <span id="media-estrellas" aria-hidden="true">☆☆☆☆☆</span>
+                    <strong id="media-valoraciones">Sin valoraciones registradas</strong>
+                    <small id="cantidad-valoraciones">Las opiniones de ejemplo no cuentan para la media.</small>
+                </div>
+            </div>
+
+            <div class="resenas__contenido">
+                <div>
+                    <h3 class="subtitulo-resenas">Opiniones de ejemplo</h3>
+                    <div class="lista-resenas">
+                        <article class="tarjeta-resena tarjeta-resena--ejemplo">
+                            <p class="etiqueta-demostracion">Ejemplo de demostración</p>
+                            <p class="estrellas-lectura" aria-label="5 de 5 estrellas">★★★★★</p>
+                            <blockquote>“Una carta con sabores reconocibles y una presentación muy cuidada. El salmorejo sería mi primera elección.”</blockquote>
+                            <p class="autor-resena">María R. <span>· Opinión ficticia</span></p>
+                        </article>
+                        <article class="tarjeta-resena tarjeta-resena--ejemplo">
+                            <p class="etiqueta-demostracion">Ejemplo de demostración</p>
+                            <p class="estrellas-lectura" aria-label="4 de 5 estrellas">★★★★☆</p>
+                            <blockquote>“El ambiente cálido y la variedad de platos representan muy bien la idea de un restaurante andaluz.”</blockquote>
+                            <p class="autor-resena">Carlos M. <span>· Opinión ficticia</span></p>
+                        </article>
+                    </div>
+
+                    <div id="bloque-resenas-guardadas" hidden>
+                        <h3 class="subtitulo-resenas">Valoraciones guardadas en este navegador</h3>
+                        <div id="lista-resenas-guardadas" class="lista-resenas"></div>
+                    </div>
+                </div>
+
+                <form id="formulario-resena" class="formulario-resena" novalidate>
+                    <p class="seccion-etiqueta seccion-etiqueta--clara">Valoración simulada</p>
+                    <h3>Comparte tu opinión</h3>
+                    <p>No incluyas información personal o sensible.</p>
+
+                    <div class="campo-resena">
+                        <label for="nombre-resena">Nombre</label>
+                        <input id="nombre-resena" name="nombre" type="text" maxlength="60" autocomplete="name" required>
+                    </div>
+
+                    <fieldset class="selector-estrellas">
+                        <legend>Puntuación</legend>
+                        <div class="estrellas-interactivas">
+                            <input class="estrella-input" id="estrella-1" type="radio" name="puntuacion" value="1" required>
+                            <label data-valor="1" for="estrella-1" aria-label="1 estrella">★</label>
+                            <input class="estrella-input" id="estrella-2" type="radio" name="puntuacion" value="2">
+                            <label data-valor="2" for="estrella-2" aria-label="2 estrellas">★</label>
+                            <input class="estrella-input" id="estrella-3" type="radio" name="puntuacion" value="3">
+                            <label data-valor="3" for="estrella-3" aria-label="3 estrellas">★</label>
+                            <input class="estrella-input" id="estrella-4" type="radio" name="puntuacion" value="4">
+                            <label data-valor="4" for="estrella-4" aria-label="4 estrellas">★</label>
+                            <input class="estrella-input" id="estrella-5" type="radio" name="puntuacion" value="5">
+                            <label data-valor="5" for="estrella-5" aria-label="5 estrellas">★</label>
+                        </div>
+                        <small id="texto-puntuacion">Selecciona entre 1 y 5 estrellas.</small>
+                    </fieldset>
+
+                    <div class="campo-resena">
+                        <label for="comentario-resena">Comentario</label>
+                        <textarea id="comentario-resena" name="comentario" rows="5" minlength="10" maxlength="500" required></textarea>
+                        <small>Entre 10 y 500 caracteres.</small>
+                    </div>
+
+                    <p id="mensaje-resena" class="mensaje-resena" aria-live="assertive"></p>
+                    <button class="boton boton--claro boton--ancho" type="submit">Enviar valoración simulada</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="eventos-ofertas" class="agenda seccion" aria-labelledby="titulo-agenda">
+            <div class="agenda__encabezado">
+                <div>
+                    <p class="seccion-etiqueta">Agenda de demostración</p>
+                    <h2 id="titulo-agenda">Eventos y ofertas</h2>
+                    <p>Propuestas ficticias creadas para este proyecto educativo. No representan actividades ni promociones reales.</p>
+                </div>
+                <p id="fecha-actualizacion-agenda" class="fecha-actualizacion-agenda" hidden></p>
+            </div>
+
+            <div class="filtros filtros-agenda" role="group" aria-label="Filtrar eventos y ofertas">
+                <button class="filtro filtro-agenda activo" type="button" data-tipo-agenda="todos" aria-pressed="true">Todos</button>
+                <button class="filtro filtro-agenda" type="button" data-tipo-agenda="evento" aria-pressed="false">Eventos</button>
+                <button class="filtro filtro-agenda" type="button" data-tipo-agenda="oferta" aria-pressed="false">Ofertas</button>
+            </div>
+
+            <p id="resultado-agenda" class="resultado-filtro" aria-live="polite"></p>
+            <div id="lista-agenda" class="lista-agenda"></div>
+
+            <p class="nota-ofertas"><strong>Importante:</strong> las promociones son informativas y de demostración. No modifican los precios ni aplican descuentos al carrito.</p>
+        </section>
+    </main>
+
+    <footer id="contacto" class="pie">
+        <div class="pie__contenido">
+            <div>
+                <p class="pie__marca">Delicias Andaluzas</p>
+                <p>Cocina tradicional, sobremesas largas<br>y sabor del sur.</p>
+            </div>
+            <div>
+                <h2>Visítanos</h2>
+                <p>Calle Azahar, 24<br>41004 Sevilla</p>
+            </div>
+            <div>
+                <h2>Horario</h2>
+                <p>Martes a domingo<br>13:00–16:30 · 20:00–23:30</p>
+            </div>
+            <div>
+                <h2>Contacto</h2>
+                <p><a href="tel:+34954000000">954 000 000</a><br><a href="mailto:hola@deliciasandaluzas.es">hola@deliciasandaluzas.es</a></p>
+            </div>
+        </div>
+        <div class="pie__final">
+            <p>© 2026 Delicias Andaluzas</p>
+            <p>Proyecto educativo · Datos de demostración</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+
