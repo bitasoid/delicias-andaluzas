@@ -504,6 +504,7 @@ a { color: inherit; }
 
 @media (max-width: 1100px) {
     .navegacion { height: 76px; position: absolute; }
+    body.menu-abierto .navegacion { backdrop-filter: none; }
     .boton-navegacion { background: transparent; border: 0; cursor: pointer; display: grid; gap: 5px; padding: 10px; position: relative; z-index: 12; }
     .boton-navegacion span:not(.sr-only) { background: white; display: block; height: 2px; width: 27px; }
     .menu-principal { align-items: center; background: #28231f; display: none; flex-direction: column; gap: 14px; inset: 0; justify-content: center; overflow-y: auto; padding: 75px 20px 30px; position: fixed; z-index: 11; }
